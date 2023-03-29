@@ -5,13 +5,15 @@
     align-items: center;
     justify-content: flex-start;
 
-    background-color: #fff;
+    background-color: #252629;
     box-shadow: 0 0.5rem 1rem rgb(3 22 51 / 15%);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
     min-height: 4rem;
     margin-bottom: 1rem!important;
+
+    color: $links;
 
     & > i {
         display: flex;
@@ -21,7 +23,9 @@
         width: 4rem;
         min-height: 4rem;
         height: auto;
-        background-color: map.get($theme-colors, "coffee");
+        // background-color: map.get($theme-colors, "coffee");
+            background-image: linear-gradient(123deg,#f0f,#ff80ff 55%,#f0f);
+    
         color: #fff;
         font-size: 1.333rem;
     }
@@ -35,6 +39,10 @@
         width: 100%;
         font-size: 1rem;
         font-weight: 500;
+    }
+
+    &:hover {
+        color: #ebebeb;
     }
 }
 
