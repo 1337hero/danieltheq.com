@@ -1,8 +1,61 @@
 <div class="block" style="justify-content: center">
     <div class="email-signup">
         <h4>Stay up to date with upcoming !</h4>
-        <input type="text" name="" value="" placeholder="Full Name">
-        <input type="text" name="" value="" placeholder="E-mail">
-        <button class="btn">Sign Up</button>
+        <form method="POST" action="https://icloseevent.activehosted.com/proc.php" id="_form_1_" class="_form _form_1 _inline-form  _dark" novalidate="">
+            <input type="hidden" name="u" value="1" data-name="u">
+            <input type="hidden" name="f" value="1" data-name="f">
+            <input type="hidden" name="s" data-name="s">
+            <input type="hidden" name="c" value="0" data-name="c">
+            <input type="hidden" name="m" value="0" data-name="m">
+            <input type="hidden" name="act" value="sub" data-name="act">
+            <input type="hidden" name="v" value="2" data-name="v">
+            <input type="hidden" name="or" value="65558575d3d7767832332220fae0f3e1" data-name="or">
+            
+            <input type="text" id="fullname" name="fullname" placeholder="Type your name" required="" data-name="fullname">
+            <input type="text" id="email" name="email" placeholder="Type your email" required="" data-name="email">
+
+            <input type="submit" value="Submit">
+            <button id="_form_1_submit" class="_submit btn" type="submit">Sign Up</button>
+        </form>
     </div>
 </div>
+
+
+
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('_form_1_');
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Perform any validation or data processing you want here
+        const formData = new FormData(form);
+        const fullName = formData.get('fullname');
+        const email = formData.get('email');
+
+        // Perform an AJAX request to submit the form data
+        submitForm(formData);
+
+        // Update the form with a thank you message or any other desired changes
+        form.innerHTML = '<div class="_form-thank-you">Thank you for submitting the form! We\'ll be in touch soon.</div>';
+      });
+    });
+
+    function submitForm(formData) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://icloseevent.activehosted.com/proc.php', true);
+      xhr.setRequestHeader('Accept', 'application/json');
+      
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          console.log('Form submission successful');
+        } else {
+          console.error('An error occurred during form submission');
+        }
+      };
+
+      xhr.send(formData);
+    }
+</script>
